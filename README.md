@@ -63,7 +63,6 @@ response = chat(
 Run the script
 ```bash
 python3 test.py
-)
 ```
 
 
