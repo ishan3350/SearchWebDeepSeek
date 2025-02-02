@@ -52,7 +52,7 @@ def searxng_search(query, searxng_url="http://yourip:8080/search"):
 If you are using a different model then change the model in test.py file
 ```bash
 response = chat(
-    # change the model name here accordingly
+    # change the model name here accordingly if needed
     model='deepseek-r1:8b',
     messages=[
         {'role': 'user', 'content': prompt}
