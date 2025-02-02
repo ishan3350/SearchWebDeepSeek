@@ -21,6 +21,18 @@ You need SerXNG that can be used to find the relevant content to user's query.
 
 Refer to https://github.com/ishan3350/SearXNG on installation guide
 
+Install the python3 libraries
+
+```bash
+pip3 install requests
+```
+```bash
+pip3 install bs4
+```
+```bash
+pip3 install ollama
+```
+
 ## Installation
 
 
@@ -45,6 +57,12 @@ response = chat(
     messages=[
         {'role': 'user', 'content': prompt}
     ]
+)
+```
+
+Run the script
+```bash
+python3 test.py
 )
 ```
 
