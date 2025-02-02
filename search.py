@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
+
+#Using serxng to search the web
 def searxng_search(query, searxng_url="http://search.local:8080/search"):
     params = {
         'q': query,        # The search query
@@ -19,16 +21,24 @@ def ask_user():
     query = input("How can I help you?")
     search_results = searxng_search(query)
 
-    print(search_results['results'][0]['url'])
-
-    response  = requests.get(search_results['results'][0]['url'])
-
-    soup = BeautifulSoup(response.text, 'html.parser')
-
-    page_text = soup.get_text()
+    results = search_results.get('results', [])
 
 
-    prompt = f"Based on the following information only: {page_text} \n\nfrom above text help summarize {query}?"
+    print(type(search_results))
+
+    page_text = ""
+
+    for i in results[:5]:
+        url = i.get('url')
+        print(url)
+        response  = requests.get(url)
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        page_text += soup.get_text()
+
+
+    prompt = f"Based on the following information only: {page_text} \n\nfrom above text help explain {query} in detail"
 
     return prompt
 

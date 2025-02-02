@@ -3,7 +3,7 @@ from ollama import chat
 
 prompt = search.ask_user()
 
-#print(prompt)
+print(prompt)
 
 response = chat(
     model='deepseek-r1:8b',
